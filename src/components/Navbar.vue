@@ -3,25 +3,28 @@
     <nav class="py-8 flex justify-between gap-10 text-white">
       <div class="flex gap-10 items-center">
         <div class="hover:-rotate-6 transition-all">
-          <router-link class="text-2xl cursor-pointer" to="/"
+          <router-link class="text-2xl cursor-pointer" to="/movie-app"
             >MovieApp</router-link
           >
         </div>
         <ul class="flex gap-10">
           <li class="hover:text-neutral-200 cursor-pointer text-xl">
-            <router-link to="/" class="flex gap-2 items-center">
+            <router-link to="/movie-app" class="flex gap-2 items-center">
               <HomeIcon class="w-5 h-5" />
               <span class="hidden md:block">Home</span>
             </router-link>
           </li>
           <li class="hover:text-neutral-200 cursor-pointer text-xl">
-            <router-link to="/search" class="flex gap-2 items-center">
+            <router-link to="/movie-app/search" class="flex gap-2 items-center">
               <MagnifyingGlassIcon class="w-5 h-5" />
               <span class="hidden md:block">Search</span>
             </router-link>
           </li>
           <li class="hover:text-neutral-200 cursor-pointer text-xl">
-            <router-link to="/watchlist" class="flex gap-2 items-center">
+            <router-link
+              to="/movie-app/watchlist"
+              class="flex gap-2 items-center"
+            >
               <StarIcon class="w-5 h-5" />
               <span class="hidden md:block">Watchlist</span>
             </router-link>
@@ -73,14 +76,14 @@
   });
 
   const handleLogin = () => {
-    router.push("/login");
+    router.push("/movie-app/login");
   };
 
   const handleSignOut = () => {
     signOut(auth)
       .then(() => {
         isLoggedIn.value = false;
-        router.push("/login");
+        router.push("/movie-app/login");
       })
       .catch((error) => {
         alert(error.message);

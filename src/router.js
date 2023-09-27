@@ -4,17 +4,23 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", component: () => import("./views/Home.vue") },
-    { path: "/register", component: () => import("./views/Register.vue") },
-    { path: "/login", component: () => import("./views/Login.vue") },
-    { path: "/search", component: () => import("./views/Search.vue") },
+    { path: "/movie-app/", component: () => import("./views/Home.vue") },
     {
-      path: "/:id",
+      path: "/movie-app/register",
+      component: () => import("./views/Register.vue"),
+    },
+    { path: "/movie-app/login", component: () => import("./views/Login.vue") },
+    {
+      path: "/movie-app/search",
+      component: () => import("./views/Search.vue"),
+    },
+    {
+      path: "/movie-app/:id",
       name: "movie-details",
       component: () => import("./views/MovieDetails.vue"),
     },
     {
-      path: "/watchlist",
+      path: "/movie-app/watchlist",
       component: () => import("./views/Watchlist.vue"),
       meta: {
         requiresAuth: true,
@@ -41,7 +47,7 @@ router.beforeEach(async (to, _, next) => {
     if (await getCurrentUser()) {
       next();
     } else {
-      next("/login");
+      next("/movie-app/login");
     }
   } else {
     next();

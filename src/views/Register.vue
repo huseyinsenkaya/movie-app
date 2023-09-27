@@ -54,7 +54,7 @@
         watchlist: [],
       });
 
-      router.push("/");
+      router.push("/movie-app");
     } catch (error) {
       alert(error.message);
     }

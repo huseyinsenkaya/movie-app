@@ -23,7 +23,7 @@
         />
       </label>
 
-      <router-link to="/register" class="mb-2">
+      <router-link to="/movie-app/register" class="mb-2">
         <span class="text-xs text-blue-100 mb-2">Create an account</span>
       </router-link>
       <button class="button">Log in</button>
@@ -33,25 +33,25 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { useRouter } from "vue-router";
+  import { ref } from "vue";
+  import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+  import { useRouter } from "vue-router";
 
-const router = useRouter();
+  const router = useRouter();
 
-const email = ref("");
-const password = ref("");
-const errMsg = ref();
+  const email = ref("");
+  const password = ref("");
+  const errMsg = ref();
 
-const registerUser = () => {
-  const auth = getAuth();
-  signInWithEmailAndPassword(auth, email.value, password.value)
-    .then((userCredential) => {
-      router.push("/");
-    })
-    .catch((error) => {
-      console.log(error.code);
-      errMsg.value = "Something went wrong!";
-    });
-};
+  const registerUser = () => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email.value, password.value)
+      .then((userCredential) => {
+        router.push("/movie-app");
+      })
+      .catch((error) => {
+        console.log(error.code);
+        errMsg.value = "Something went wrong!";
+      });
+  };
 </script>

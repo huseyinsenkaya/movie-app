@@ -23,7 +23,7 @@
         const querySnapshot = await getDoc(doc(firestore, "users", user.uid));
         movies.value = [...querySnapshot.data().watchlist];
       } else {
-        router.push("/login");
+        router.push("/movie-app/login");
       }
     });
   };

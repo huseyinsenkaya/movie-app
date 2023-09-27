@@ -154,7 +154,7 @@
           console.log(error);
         }
       } else {
-        router.push("/login");
+        router.push("/movie-app/login");
       }
     });
   };
@@ -181,7 +181,7 @@
           console.log(error);
         }
       } else {
-        router.push("/login");
+        router.push("/movie-app/login");
       }
     });
   };
